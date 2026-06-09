@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cdmirvhd146qo"]
+
+[ext_resource type="Texture2D" uid="uid://cbrtavdm6gto8" path="res://light background.png" id="1_3hls8"]
+[ext_resource type="Script" uid="uid://cdfficlkqy6pm" path="res://level.gd" id="1_rka8t"]
+[ext_resource type="PackedScene" uid="uid://k5mnp3ubw4bv" path="res://player.tscn" id="2_hbghi"]
+[ext_resource type="Script" uid="uid://df01efmxyfaqk" path="res://player.gd" id="3_hn12h"]
+[ext_resource type="PackedScene" uid="uid://mwpvc4bpmxol" path="res://maze.tscn" id="4_ihfcg"]
+
+[node name="Level1" type="Node2D" unique_id=2032980510]
+script = ExtResource("1_rka8t")
+
+[node name="Player" parent="." unique_id=1695889137 instance=ExtResource("2_hbghi")]
+z_index = 5
+position = Vector2(530, 66)
+script = ExtResource("3_hn12h")
+
+[node name="Background" type="TextureRect" parent="." unique_id=836334535]
+offset_left = 3.0
+offset_top = -14.0
+offset_right = 1154.0
+offset_bottom = 645.0
+texture = ExtResource("1_3hls8")
+expand_mode = 3
+stretch_mode = 1
+
+[node name="maze" parent="." unique_id=912444212 instance=ExtResource("4_ihfcg")]
+z_index = 1
+position = Vector2(104, -64)
+
+[connection signal="body_exited" from="maze" to="." method="_on_maze_body_exited"]
