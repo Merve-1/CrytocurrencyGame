@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cra4hm1r6d8jn"]
+
+[ext_resource type="Texture2D" uid="uid://b07y72j54igli" path="res://assets/textures/background.png" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://bxsoc8h58pcmv" path="res://scenes/player.tscn" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://ck64jywqn2tks" path="res://scripts/player.gd" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://dbgs448xk8rf4" path="res://scenes/enemy_spawner.tscn" id="5_p57ef"]
+
+[node name="Game" type="Node2D" unique_id=1069400878]
+
+[node name="Background" type="TextureRect" parent="." unique_id=142206034]
+offset_left = -115.0
+offset_top = -54.0
+offset_right = 2078.0
+offset_bottom = 1077.0
+texture = ExtResource("1_uwrxv")
+expand_mode = 3
+stretch_mode = 1
+
+[node name="Player" parent="." unique_id=1382138443 instance=ExtResource("2_yqjtg")]
+position = Vector2(101, 258)
+script = ExtResource("3_lbhrr")
+
+[node name="EnemySpawner" parent="." unique_id=1605697403 instance=ExtResource("5_p57ef")]
