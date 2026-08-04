@@ -1,6 +1,9 @@
 extends CharacterBody2D
 var speed = 300
 var bullet_scene = load("res://scenes/bullet.tscn")
+
+signal took_damage
+
 @onready var bullet_container = $RocketContainer
 func _process(delta):
 	if Input.is_action_just_pressed("shoot"):
@@ -23,3 +26,6 @@ func shoot():
 	bullet_container.add_child(bullet_instance)
 	bullet_instance.global_position = global_position
 	bullet_instance.global_position.x +=50 
+
+func take_damage():
+	emit_signal("took_damage")

@@ -7,6 +7,8 @@
 height = 118.0
 
 [node name="bullet" type="Area2D" unique_id=1391616161]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_y25gk")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=36329950]
@@ -21,4 +23,5 @@ shape = SubResource("CapsuleShape2D_y25gk")
 
 [node name="VisibleNotifer" type="VisibleOnScreenNotifier2D" parent="." unique_id=1684436756]
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="screen_exited" from="VisibleNotifer" to="." method="_on_visible_notifer_screen_exited"]
